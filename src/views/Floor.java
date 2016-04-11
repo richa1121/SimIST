@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -51,7 +52,7 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
    }
    
    public void setImage (Image newImage){
-       this.floorImage = newImage;
+       this.floorImage = floorImage;
    }
    
    public void paintComponent(Graphics g){
@@ -138,6 +139,8 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
        private int capacity;
        private int xLocation;
        private int yLocation;
+       private Image floorImage1; 
+       
        //private JPanel roomView;
        
        public Room(int roomNum, int x, int y){
@@ -147,12 +150,16 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
            this.yLocation = y;
            this.capacity = 50;
            this.floor = 1;
+           ImageIcon floorIcon1 = new ImageIcon("floor tiles.png");
+          floorImage1 = floorIcon1.getImage().getScaledInstance(800, 800, Image.SCALE_DEFAULT);
            
            this.setBounds(this.xLocation, this.yLocation, 30, 30);
        }
        
        public void paintComponent(Graphics g){
-           g.drawRect(x, y, 30, 30);
+          
+           g.drawRect(x, y, 30, 30); 
+           g.drawImage(floorImage1, 0, 0, null);
        }
        
        public int getNum(){
