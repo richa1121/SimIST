@@ -44,14 +44,12 @@ public class Artifacts extends Rectangle {
     
     public void Draw(Graphics g){
         g.drawImage(artifacts, xLocation, yLocation, null);
-        
-        
-        
-        
+      
     }
             
- public void getArtifactInfo(){
+    public void getArtifactInfo(){
         System.out.println(ArtifactName +" "+ isUsable+" "+ isCollidable);
+        
     }
     
    
