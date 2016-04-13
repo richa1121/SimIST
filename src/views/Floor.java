@@ -140,6 +140,10 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
        private int xLocation;
        private int yLocation;
        private Image floorImage1; 
+       private Image couch;
+       private Image couchInward;
+       private Image couchInward2;
+       private Image couchInward3;
        
        //private JPanel roomView;
        
@@ -151,8 +155,20 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
            this.capacity = 50;
            this.floor = 1;
            ImageIcon floorIcon1 = new ImageIcon("floor tiles.png");
-          floorImage1 = floorIcon1.getImage().getScaledInstance(800, 800, Image.SCALE_DEFAULT);
+           floorImage1 = floorIcon1.getImage().getScaledInstance(800, 800, Image.SCALE_DEFAULT);
+         
+           ImageIcon couchIcon1 = new ImageIcon("couch.png");
+           couch = couchIcon1.getImage().getScaledInstance(100, 50, Image.SCALE_DEFAULT);
+          
+           ImageIcon couchIcon2 = new ImageIcon("couchIn.png");
+           couchInward = couchIcon2.getImage().getScaledInstance(50, 90, Image.SCALE_DEFAULT);
            
+           ImageIcon couchIcon3 = new ImageIcon("couchIn2.png");
+           couchInward2 = couchIcon3.getImage().getScaledInstance(100, 50, Image.SCALE_DEFAULT);
+          
+           ImageIcon couchIcon4 = new ImageIcon("couchIn3.png");
+           couchInward3 = couchIcon4.getImage().getScaledInstance(50, 90, Image.SCALE_DEFAULT);
+                     
            this.setBounds(this.xLocation, this.yLocation, 30, 30);
        }
        
@@ -160,6 +176,19 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
           
            g.drawRect(x, y, 30, 30); 
            g.drawImage(floorImage1, 0, 0, null);
+           g.drawImage(couch, 300, 200, null);
+           g.drawImage(couch, 400, 200, null);
+           g.drawImage(couch, 500, 200, null);
+           g.drawImage(couchInward, 600, 250, null);
+           g.drawImage(couchInward, 600, 340, null);
+           g.drawImage(couchInward, 600, 430, null);
+           g.drawImage(couchInward2, 500, 520, null);
+           g.drawImage(couchInward2, 400, 520, null);
+           g.drawImage(couchInward2, 300, 520, null);
+           g.drawImage(couchInward2, 200, 520, null);
+           g.drawImage(couchInward3, 150, 250, null);
+           g.drawImage(couchInward3, 150, 340, null);
+           g.drawImage(couchInward3, 150, 430, null);
        }
        
        public int getNum(){
