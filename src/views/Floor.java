@@ -144,6 +144,7 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
        private Image couchInward;
        private Image couchInward2;
        private Image couchInward3;
+       private Image table;
        
        //private JPanel roomView;
        
@@ -169,6 +170,10 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
            ImageIcon couchIcon4 = new ImageIcon("couchIn3.png");
            couchInward3 = couchIcon4.getImage().getScaledInstance(50, 90, Image.SCALE_DEFAULT);
                      
+           ImageIcon tableIcon1 = new ImageIcon("Table pixel.png");
+           floorImage1 = floorIcon1.getImage().getScaledInstance(800, 800, Image.SCALE_DEFAULT);
+           table = tableIcon1.getImage();
+          
            this.setBounds(this.xLocation, this.yLocation, 30, 30);
        }
        
@@ -189,6 +194,7 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
            g.drawImage(couchInward3, 150, 250, null);
            g.drawImage(couchInward3, 150, 340, null);
            g.drawImage(couchInward3, 150, 430, null);
+           g.drawImage(table, 100, 100, null);
        }
        
        public int getNum(){
