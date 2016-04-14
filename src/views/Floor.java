@@ -159,17 +159,22 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
        private int capacity;
        private int xLocation;
        private int yLocation;
+      
        private Image floorImage1; 
        private Image couch1;
+       private Image table;
+       private Image computer;
+       
        private Artifacts artifact1;
        private Artifacts artifact2;
+       private Artifacts artifact3;
        
        
       /* private Image couchInward;
        private Image couchInward2;
        private Image couchInward3;
        */
-       private Image table;
+      
        
        
        //private JPanel roomView;
@@ -188,6 +193,8 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
           ImageIcon floorIcon1 = new ImageIcon("floor tiles.png");
            floorImage1 = floorIcon1.getImage().getScaledInstance(800, 800, Image.SCALE_DEFAULT);
          
+           
+           //Artifact testing
            ImageIcon couchIcon1 = new ImageIcon("couch.png");
            couch1 = couchIcon1.getImage().getScaledInstance(100, 50, Image.SCALE_DEFAULT);
            
@@ -196,9 +203,14 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
            ImageIcon tableIcon1 = new ImageIcon("Table pixel.png");
            table = tableIcon1.getImage().getScaledInstance(120, 120, Image.SCALE_DEFAULT);
            
+           ImageIcon computerIcon1 = new ImageIcon("New Piskel.png");
+           computer= computerIcon1.getImage().getScaledInstance(60, 60, Image.SCALE_DEFAULT);
+           
            artifact1 = new Artifacts("Couch", 500, 50, couch1);
            
            artifact2 = new Artifacts("Table", 500, 75, table);
+           
+           artifact3 = new Artifacts("Computer", 200, 400, computer);
            
            
            
@@ -241,11 +253,19 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
            g.drawImage(couchInward3, 150, 430, null);
            g.drawImage(table, 350, 300, null);
            g.drawImage(couch, x, y, null); */ 
+           
+
+// Artifact Drawing and collision testing. 
            artifact1.Draw(g);
            artifact2.Draw(g);
+           artifact3.Draw(g);
            if(player1.intersects(artifact1)){
                System.out.println("Collision Successful");
+               //add method to stop motion later if needed
            
+           }
+           if (player1.intersects(artifact3)){
+               System.out.println("Logging into computer");
            }
           
            
