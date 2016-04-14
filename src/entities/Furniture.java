@@ -16,9 +16,9 @@ import javax.swing.ImageIcon;
 public class Furniture extends Artifacts{
         
         
-        Furniture(String ArtifactName,boolean isUsable, boolean isCollidable, int xLocation, int yLocation,Image artifacts ){
+        Furniture(String ArtifactName,/*boolean isUsable, boolean isCollidable,*/ int xLocation, int yLocation,Image artifacts ){
             
-            super(ArtifactName,isUsable,isCollidable,xLocation,yLocation,artifacts);
+            super(ArtifactName,/*isUsable,isCollidable,*/xLocation,yLocation,artifacts);
          
         
          
@@ -28,6 +28,7 @@ public class Furniture extends Artifacts{
         }
             public void Draw(Graphics g){
                super.Draw(g);
+               g.drawImage(artifacts, xLocation, yLocation, null);
             }
             public void getArtifactInfo(){
                 super.getArtifactInfo();

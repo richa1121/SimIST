@@ -29,12 +29,15 @@ public class Artifacts extends Rectangle {
    public Image artifacts; 
    
    
-  Artifacts(String ArtifactName,boolean isUsable, boolean isCollidable, int xLocation, int yLocation, Image artifacts)
+  public Artifacts(String ArtifactName,/*boolean isUsable, boolean isCollidable,*/ int xLocation, int yLocation, Image artifacts)
    {
-       this.ArtifactName=ArtifactName;
-       this.isUsable=isUsable; 
+      this.ArtifactName=ArtifactName;
+      
+      /*this.isUsable=isUsable; 
        this.isEditable = isEditable;
        this.isCollidable=isCollidable;
+       */
+       
        this.xLocation=xLocation;
        this.yLocation=yLocation; 
        this.artifacts = artifacts;
@@ -51,8 +54,26 @@ public class Artifacts extends Rectangle {
         System.out.println(ArtifactName +" "+ isUsable+" "+ isCollidable);
         
     }
+}
     
-   
+    
+   /**** public class Couches extends Artifacts{
+        private Image couch; 
+        public Couches( int xLocation, int yLocation, Image artifacts){
+             super(xLocation, yLocation, artifacts);
+             /*this.xLocation =this.x;
+             this.yLocation =this.y;*/
+          /***    ImageIcon couchIcon1 = new ImageIcon("couch.png");
+           this.artifacts = couchIcon1.getImage().getScaledInstance(this.xLocation, this.yLocation, Image.SCALE_DEFAULT);
+           
+        }
+        public void Draw(Graphics g){
+            g.drawImage(couch, xLocation, yLocation, null);
+        }
+       
+               
+    }  ****/
+ 
    /* public void getLocation(){
         //return location
     }
@@ -61,7 +82,7 @@ public class Artifacts extends Rectangle {
      * @return the ArtifactMaterial
      */
    
-    }
+    
 
  
    /* public class Furniture extends Artifacts{
@@ -90,7 +111,6 @@ public class Artifacts extends Rectangle {
         }
     */
 
- 
       
     
     

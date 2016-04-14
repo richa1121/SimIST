@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package views;
+ 
+
+import entities.Artifacts;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -29,6 +32,7 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
    private ArrayList<Room> rooms;
    private player player1;
    
+   
    public Floor(String floorName){
        refreshTimer = new Timer (50, this);
        refreshTimer.start();
@@ -37,6 +41,9 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
        rooms = new ArrayList<>();
        rooms.add(new Room(3, 50,50));
        player1 = new player();
+     
+      
+       
        this.addKeyListener(this);
        setFocusable(true);
         requestFocusInWindow();
@@ -63,10 +70,12 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
        }
        player1.paintComponent(g);
        
+       
        for(int i = 0; i<rooms.size();i++){
           if(player1.intersects(rooms.get(i))){
               JOptionPane.showConfirmDialog(this,"This is room number"+rooms.get(i).getNum()+"Do you want to enter?");
           }
+          
        }
    }
    
@@ -87,10 +96,17 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
        else if(e.getKeyCode() ==KeyEvent.VK_RIGHT){
            player1.setDx(20);
        }
+        else if(e.getKeyCode() ==KeyEvent.VK_UP){
+           player1.setDy(-20);
+        }
+            else if(e.getKeyCode() ==KeyEvent.VK_DOWN){
+           player1.setDy(20);
+            }
     }   
     
     public void keyReleased(KeyEvent e){
         player1.setDx(0);
+        player1.setDy(0);
     }
     public void keyTyped(KeyEvent e){
         
@@ -108,20 +124,24 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
     
     private class player extends Rectangle{
          private int dx;
+         private int dy;
         public player(){
             this.dx = 0;
-            
+            this.dy = 0;
             this.setBounds(100, 50, 30, 30);
         }
         
         public void move(){
             this.x+=dx;
+            this.y+=dy;
         }
         
         public void setDx(int dx){
             this.dx = dx;
         }
-        
+         public void setDy(int dy){
+            this.dy = dy;
+        }
         public void paintComponent(Graphics g){
             move();
             g.drawRect(x, y, 30, 30);
@@ -140,11 +160,17 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
        private int xLocation;
        private int yLocation;
        private Image floorImage1; 
-       private Image couch;
-       private Image couchInward;
+       private Image couch1;
+       private Artifacts artifact1;
+       private Artifacts artifact2;
+       
+       
+      /* private Image couchInward;
        private Image couchInward2;
        private Image couchInward3;
+       */
        private Image table;
+       
        
        //private JPanel roomView;
        
@@ -155,12 +181,22 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
            this.yLocation = y;
            this.capacity = 50;
            this.floor = 1;
-           ImageIcon floorIcon1 = new ImageIcon("floor tiles.png");
+           
+           
+ 
+           
+          ImageIcon floorIcon1 = new ImageIcon("floor tiles.png");
            floorImage1 = floorIcon1.getImage().getScaledInstance(800, 800, Image.SCALE_DEFAULT);
          
            ImageIcon couchIcon1 = new ImageIcon("couch.png");
-           couch = couchIcon1.getImage().getScaledInstance(100, 50, Image.SCALE_DEFAULT);
-          
+           couch1 = couchIcon1.getImage().getScaledInstance(100, 50, Image.SCALE_DEFAULT);
+           
+           ImageIcon tableIcon1 = new ImageIcon("Table pixel.png");
+           table = tableIcon1.getImage().getScaledInstance(120, 120, Image.SCALE_DEFAULT);
+           
+           artifact1 = new Artifacts("Couch", 500, 50, couch1);
+           artifact2 = new Artifacts("Table", 500, 75, table);
+         /* 
            ImageIcon couchIcon2 = new ImageIcon("couchIn.png");
            couchInward = couchIcon2.getImage().getScaledInstance(50, 90, Image.SCALE_DEFAULT);
            
@@ -172,15 +208,19 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
                      
            ImageIcon tableIcon1 = new ImageIcon("Table pixel.png");
            table = tableIcon1.getImage().getScaledInstance(120, 120, Image.SCALE_DEFAULT);
-           
+           */
            this.setBounds(this.xLocation, this.yLocation, 30, 30);
        }
        
        public void paintComponent(Graphics g){
+           
           
-           g.drawRect(x, y, 30, 30); 
+  
+       g.drawRect(x, y, 30, 30); 
+          
            g.drawImage(floorImage1, 0, 0, null);
-           g.drawImage(couch, 300, 200, null);
+          
+          /* g.drawImage(couch, 300, 200, null);
            g.drawImage(couch, 400, 200, null);
            g.drawImage(couch, 500, 200, null);
            g.drawImage(couchInward, 600, 250, null);
@@ -194,6 +234,11 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
            g.drawImage(couchInward3, 150, 340, null);
            g.drawImage(couchInward3, 150, 430, null);
            g.drawImage(table, 350, 300, null);
+           g.drawImage(couch, x, y, null); */ 
+           artifact1.Draw(g);
+           artifact2.Draw(g);
+          
+           
        }
        
        public int getNum(){

@@ -57,7 +57,7 @@ import java.awt.event.ActionListener;
     public class JPanelOne extends JPanel implements ActionListener {
        Timer t = new Timer(5,this);
         
-       Furniture furn1 = new Furniture("Table",true, true,50, 50, Aimage);
+       //Furniture furn1 = new Furniture(50, 50, Aimage);
      
        private JTextArea b;
         
@@ -66,7 +66,7 @@ import java.awt.event.ActionListener;
             b= new JTextArea("Test");
             b.setEditable(false);
             add(b);
-            furn1.getArtifactInfo();
+            //furn1.getArtifactInfo();
         } 
        
         public void actionPerformed(ActionEvent e){   
