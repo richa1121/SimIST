@@ -191,11 +191,17 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
            ImageIcon couchIcon1 = new ImageIcon("couch.png");
            couch1 = couchIcon1.getImage().getScaledInstance(100, 50, Image.SCALE_DEFAULT);
            
+      
+           
            ImageIcon tableIcon1 = new ImageIcon("Table pixel.png");
            table = tableIcon1.getImage().getScaledInstance(120, 120, Image.SCALE_DEFAULT);
            
            artifact1 = new Artifacts("Couch", 500, 50, couch1);
+           
            artifact2 = new Artifacts("Table", 500, 75, table);
+           
+           
+           
          /* 
            ImageIcon couchIcon2 = new ImageIcon("couchIn.png");
            couchInward = couchIcon2.getImage().getScaledInstance(50, 90, Image.SCALE_DEFAULT);
@@ -237,6 +243,10 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
            g.drawImage(couch, x, y, null); */ 
            artifact1.Draw(g);
            artifact2.Draw(g);
+           if(player1.intersects(artifact1)){
+               System.out.println("Collision Successful");
+           
+           }
           
            
        }

@@ -18,6 +18,7 @@ import javax.swing.*;
 public class Artifacts extends Rectangle {
     
    public String ArtifactName;
+   public int ArtifactSize;
    
    public boolean isUsable;
    public boolean isEditable; 
@@ -37,10 +38,11 @@ public class Artifacts extends Rectangle {
        this.isEditable = isEditable;
        this.isCollidable=isCollidable;
        */
-       
+       this.ArtifactSize = artifacts.getHeight(null);
        this.xLocation=xLocation;
        this.yLocation=yLocation; 
        this.artifacts = artifacts;
+       this.setBounds(this.xLocation, this.yLocation, this.xLocation, this.yLocation);
        
    }
    
